@@ -10,11 +10,11 @@ interface ImageModalProps {
   modalImage: ImageData;
 }
 
-export default function ImageModal<ImageModalProps>({
+export default function ImageModal({
   isOpen,
   onRequestClose,
   modalImage,
-}) {
+}: ImageModalProps) {
   return (
     <Modal
       isOpen={isOpen}

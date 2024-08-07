@@ -8,7 +8,7 @@ interface ImageGalleryProps {
   openModal: () => void;
 }
 
-export default function ImageGallery<ImageGalleryProps>({ images, openModal }) {
+export default function ImageGallery({ images, openModal }: ImageGalleryProps) {
   return (
     <ul className={css.gallery}>
       {images.map((image) => (

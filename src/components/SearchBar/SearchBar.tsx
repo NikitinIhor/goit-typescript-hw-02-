@@ -7,8 +7,8 @@ interface SearchBarProps {
   onSearch: (text: string) => void;
 }
 
-export default function SearchBar<SearchBarProps>({ onSearch }) {
-  const handleSubmit = (values: string, actions) => {
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const handleSubmit = (values: { text: string }, actions) => {
     actions.resetForm();
     values.text.length === 0
       ? toast.error("Please enter the word...")
