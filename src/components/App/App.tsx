@@ -9,33 +9,35 @@ import toast, { Toaster } from "react-hot-toast";
 import ImageModal from "../ImageModal/ImageModal";
 import css from "./App.module.css";
 
-export default function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [newPage, setNewPage] = useState("");
-  const [modal, setModal] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
+import { ImageData } from "../../gallerySearchApi";
 
-  const handleSearch = async (newImages) => {
+export default function App() {
+  const [images, setImages] = useState<ImageData[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [newPage, setNewPage] = useState<string>("");
+  const [modal, setModal] = useState<boolean>(false);
+  const [modalImage, setModalImage] = useState<string>("");
+
+  const handleSearch = async (newImages: string): Promise<void> => {
     setImages([]);
     setPage(1);
     setTotalPages(0);
     setNewPage(newImages);
   };
 
-  const handleLoadMore = () => {
+  const handleLoadMore = (): void => {
     setPage(page + 1);
   };
 
-  const openModal = (image) => {
+  const openModal = (image: string): void => {
     setModal(true);
     setModalImage(image);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setModal(false);
   };
 
@@ -55,7 +57,7 @@ export default function App() {
 
         setTotalPages(data.total_pages);
 
-        if (data.length === 0) {
+        if (data.results.length === 0) {
           toast.error(`no matches found for the word: "${newPage}"`);
         }
       } catch (error) {

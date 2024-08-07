@@ -3,8 +3,12 @@ import toast from "react-hot-toast";
 import { IoSearchOutline } from "react-icons/io5";
 import css from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
-  const handleSubmit = (values, actions) => {
+interface SearchBarProps {
+  onSearch: (text: string) => void;
+}
+
+export default function SearchBar<SearchBarProps>({ onSearch }) {
+  const handleSubmit = (values: string, actions) => {
     actions.resetForm();
     values.text.length === 0
       ? toast.error("Please enter the word...")

@@ -1,4 +1,11 @@
-export default function ImageCard({ data, openModal }) {
+import { ImageData } from "../../gallerySearchApi";
+
+interface ImageCardProps {
+  data: ImageData;
+  openModal: () => void;
+}
+
+export default function ImageCard<ImageCardProps>({ data, openModal }) {
   return (
     <div onClick={() => openModal(data)}>
       <img
