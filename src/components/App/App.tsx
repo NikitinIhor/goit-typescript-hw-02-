@@ -19,7 +19,7 @@ export default function App() {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [newPage, setNewPage] = useState<string>("");
   const [modal, setModal] = useState<boolean>(false);
-  const [modalImage, setModalImage] = useState<string>("");
+  const [modalImage, setModalImage] = useState<ImageData | null>(null);
 
   const handleSearch = async (newImages: string): Promise<void> => {
     setImages([]);
@@ -32,7 +32,7 @@ export default function App() {
     setPage(page + 1);
   };
 
-  const openModal = (image: string): void => {
+  const openModal = (image: ImageData): void => {
     setModal(true);
     setModalImage(image);
   };

@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, FormikHelpers } from "formik";
 import toast from "react-hot-toast";
 import { IoSearchOutline } from "react-icons/io5";
 import css from "./SearchBar.module.css";
@@ -6,9 +6,15 @@ import css from "./SearchBar.module.css";
 interface SearchBarProps {
   onSearch: (text: string) => void;
 }
+interface FormikValues {
+  text: string;
+}
 
 export default function SearchBar({ onSearch }: SearchBarProps) {
-  const handleSubmit = (values: { text: string }, actions) => {
+  const handleSubmit = (
+    values: { text: string },
+    actions: FormikHelpers<FormikValues>
+  ) => {
     actions.resetForm();
     values.text.length === 0
       ? toast.error("Please enter the word...")

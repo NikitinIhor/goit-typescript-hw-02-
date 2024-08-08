@@ -7,7 +7,7 @@ Modal.setAppElement("#root");
 interface ImageModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  modalImage: ImageData;
+  modalImage: ImageData | null;
 }
 
 export default function ImageModal({

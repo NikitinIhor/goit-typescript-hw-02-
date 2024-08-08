@@ -5,7 +5,7 @@ import { ImageData } from "../../gallerySearchApi";
 
 interface ImageGalleryProps {
   images: ImageData[];
-  openModal: () => void;
+  openModal: (image: ImageData) => void;
 }
 
 export default function ImageGallery({ images, openModal }: ImageGalleryProps) {

@@ -2,7 +2,7 @@ import { ImageData } from "../../gallerySearchApi";
 
 interface ImageCardProps {
   data: ImageData;
-  openModal: (data: ImageData) => void;
+  openModal: (image: ImageData) => void;
 }
 
 export default function ImageCard({ data, openModal }: ImageCardProps) {
