@@ -21,7 +21,7 @@ export default function App() {
   const [modal, setModal] = useState<boolean>(false);
   const [modalImage, setModalImage] = useState<ImageData | null>(null);
 
-  const handleSearch = async (newImages: string): Promise<void> => {
+  const handleSearch = (newImages: string): void => {
     setImages([]);
     setPage(1);
     setTotalPages(0);
